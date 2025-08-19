@@ -2,11 +2,16 @@
 
 from google.adk.agents.llm_agent import LlmAgent
 from ..prompts import REQUIREMENTS_ANALYZER_PROMPT
-
+from google.adk.models.lite_llm import LiteLlm
+import os 
 
 requirements_analyzer = LlmAgent(
     name="requirements_analyzer",
-    model="gemini-2.0-flash",
+    model=LiteLlm(
+        model='openai/gpt-5-nano-2025-08-07',
+        api_key=os.getenv("AIML_API_KEY"),
+        api_base='https://api.aimlapi.com/v1'
+    ),
     description="""
     Requirements Analysis Specialist that extracts and structures user requirements 
     for agent creation. Analyzes user input to understand purpose, capabilities, 

@@ -6,4 +6,5 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "google-adk>=1.11.0",
+    "litellm>=1.75.8",
 ]
