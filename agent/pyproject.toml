@@ -9,5 +9,6 @@ dependencies = [
     "litellm>=1.75.8",
     "pathlib>=1.0.1",
     "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
     "uuid>=1.30",
 ]

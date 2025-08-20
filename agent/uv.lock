@@ -20,6 +20,7 @@ dependencies = [
     { name = "litellm" },
     { name = "pathlib" },
     { name = "pydantic" },
+    { name = "pydantic-settings" },
     { name = "uuid" },
 ]
 
@@ -29,6 +30,7 @@ requires-dist = [
     { name = "litellm", specifier = ">=1.75.8" },
     { name = "pathlib", specifier = ">=1.0.1" },
     { name = "pydantic", specifier = ">=2.11.7" },
+    { name = "pydantic-settings", specifier = ">=2.10.1" },
     { name = "uuid", specifier = ">=1.30" },
 ]
 
