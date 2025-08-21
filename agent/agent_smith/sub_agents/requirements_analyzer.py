@@ -5,6 +5,14 @@ from ..prompts import REQUIREMENTS_ANALYZER_PROMPT
 from google.adk.models.lite_llm import LiteLlm
 import os 
 
+from dotenv import load_dotenv
+load_dotenv()
+
+import litellm
+
+# Enable the use_litellm_proxy flag
+litellm.use_litellm_proxy = True
+
 requirements_analyzer = LlmAgent(
     name="requirements_analyzer",
     model=LiteLlm(

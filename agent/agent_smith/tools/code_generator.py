@@ -12,8 +12,8 @@ from typing import Dict, Any
 # Import the AgentCodeGenerator class and related schemas
 try:
     # Try relative import first
-    from ...code_generator import AgentCodeGenerator
-    from ...config_schema import validate_agent_config, AgentProjectConfig
+    from .code_generator_test import AgentCodeGenerator
+    from .config_schema import validate_agent_config, AgentProjectConfig
 except ImportError:
     try:
         # Try absolute import
