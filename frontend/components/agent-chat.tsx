@@ -72,47 +72,47 @@ export function AgentChat() {
   }
 
   return (
-    <div className="h-full flex flex-col bg-slate-50">
+    <div className="h-full flex flex-col bg-gray-50">
       {/* Header */}
-      <div className="p-4 border-b border-slate-200 bg-white flex-shrink-0">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-            <Bot className="w-4 h-4 text-white" />
+      <div className="p-6 border-b border-gray-100 bg-white flex-shrink-0">
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-xl bg-gray-900 flex items-center justify-center">
+            <Bot className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-slate-900">Customer Support Agent</h3>
-            <p className="text-xs text-slate-500">Test your AI agent</p>
+            <h3 className="text-base font-medium text-gray-900">Customer Support Agent</h3>
+            <p className="text-sm text-gray-500 font-light">Test your AI agent</p>
           </div>
         </div>
       </div>
 
       {/* Messages - scrollable area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
+      <div className="flex-1 overflow-y-auto p-6 space-y-6 min-h-0">
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`flex items-start gap-3 animate-slide-in ${
+            className={`flex items-start gap-4 animate-slide-in ${
               message.role === "user" ? "justify-end" : "justify-start"
             }`}
           >
             {message.role === "assistant" && (
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0">
-                <Bot className="w-4 h-4 text-white" />
+              <div className="w-10 h-10 rounded-xl bg-gray-900 flex items-center justify-center flex-shrink-0">
+                <Bot className="w-5 h-5 text-white" />
               </div>
             )}
             <div
-              className={`max-w-[85%] p-3 rounded-lg text-sm leading-relaxed ${
+              className={`max-w-[85%] p-4 rounded-2xl text-sm leading-relaxed ${
                 message.role === "user"
-                  ? "bg-blue-600 text-white rounded-br-sm"
-                  : "bg-white text-slate-800 rounded-bl-sm border border-slate-200"
+                  ? "bg-gray-900 text-white"
+                  : "bg-white text-gray-900 border border-gray-100"
               }`}
             >
               {message.content}
             </div>
             {message.role === "user" && (
-              <div className="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center flex-shrink-0">
-                <div className="w-5 h-5 rounded-full bg-slate-400 flex items-center justify-center">
-                  <span className="text-xs font-medium text-white">U</span>
+              <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
+                <div className="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center">
+                  <span className="text-xs font-medium text-gray-600">U</span>
                 </div>
               </div>
             )}
@@ -120,19 +120,19 @@ export function AgentChat() {
         ))}
 
         {isLoading && (
-          <div className="flex items-start gap-3 animate-slide-in">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0">
-              <Bot className="w-4 h-4 text-white" />
+          <div className="flex items-start gap-4 animate-slide-in">
+            <div className="w-10 h-10 rounded-xl bg-gray-900 flex items-center justify-center flex-shrink-0">
+              <Bot className="w-5 h-5 text-white" />
             </div>
-            <div className="bg-white text-slate-800 p-3 rounded-lg rounded-bl-sm text-sm border border-slate-200">
-              <div className="flex items-center gap-1">
-                <div className="w-2 h-2 bg-slate-400 rounded-full animate-pulse"></div>
+            <div className="bg-white text-gray-900 p-4 rounded-2xl text-sm border border-gray-100">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
                 <div
-                  className="w-2 h-2 bg-slate-400 rounded-full animate-pulse"
+                  className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"
                   style={{ animationDelay: "0.2s" }}
                 ></div>
                 <div
-                  className="w-2 h-2 bg-slate-400 rounded-full animate-pulse"
+                  className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"
                   style={{ animationDelay: "0.4s" }}
                 ></div>
               </div>
@@ -143,21 +143,21 @@ export function AgentChat() {
       </div>
 
       {/* Input - fixed at bottom */}
-      <div className="p-4 border-t border-slate-200 bg-white flex-shrink-0">
-        <form onSubmit={handleSubmit} className="flex gap-2">
+      <div className="p-6 border-t border-gray-100 bg-white flex-shrink-0">
+        <form onSubmit={handleSubmit} className="flex gap-3">
           <Textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Test your agent..."
-            className="flex-1 min-h-[40px] max-h-[120px] bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 resize-none text-sm"
+            className="flex-1 min-h-[48px] max-h-[120px] bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 resize-none text-sm font-light focus:border-gray-300 focus:ring-1 focus:ring-gray-300 rounded-xl"
             rows={1}
           />
           <Button
             type="submit"
             size="sm"
             disabled={!input.trim() || isLoading}
-            className="bg-green-600 hover:bg-green-700 text-white self-end"
+            className="bg-gray-900 hover:bg-gray-800 text-white self-end rounded-xl h-12 w-12 p-0"
           >
             <Send className="w-4 h-4" />
           </Button>

@@ -24,9 +24,9 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen flex bg-slate-900">
+    <div className="h-screen flex bg-white">
       {/* Chat Panel - 2/5 width */}
-      <div className="w-2/6 border-r border-slate-800 animate-slide-in">
+      <div className="w-2/6 border-r border-gray-100 animate-slide-in">
         <ChatInterface initialMessage={initialMessage} onFirstResponse={handleFirstResponse} />
       </div>
 

@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { Send, Zap } from "lucide-react"
+import { Send, Bot } from "lucide-react"
 import { mockPrompts } from "@/lib/mock-api"
 import type { PromptSuggestion } from "@/types"
 
@@ -36,19 +36,19 @@ export function LandingPage({ onSubmit }: LandingPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl mx-auto animate-fade-in">
+    <div className="min-h-screen bg-white flex items-center justify-center p-8">
+      <div className="w-full max-w-3xl mx-auto animate-fade-in">
         {/* Brand Header */}
-        <div className="flex items-center justify-center mb-8">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-              <Zap className="w-6 h-6 text-white" />
+        <div className="flex items-center justify-center mb-12">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-gray-900 rounded-2xl flex items-center justify-center">
+              <Bot className="w-6 h-6 text-white" />
             </div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-bold text-white">Bleach</h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-light text-gray-900">Agent Smith</h1>
               <Badge
                 variant="secondary"
-                className="bg-blue-500/10 text-blue-400 border-blue-500/20 px-2 py-0.5 text-xs"
+                className="bg-gray-100 text-gray-600 border-gray-200 px-3 py-1 text-xs font-normal"
               >
                 Beta
               </Badge>
@@ -57,29 +57,29 @@ export function LandingPage({ onSubmit }: LandingPageProps) {
         </div>
 
         {/* Main Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Build AI agents with ease</h2>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-light text-gray-900 mb-6 tracking-tight">Build AI agents with ease</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
             Create intelligent AI agents for your business needs. Define their personality, knowledge, and capabilities
             through simple conversation.
           </p>
         </div>
 
         {/* Input Form */}
-        <form onSubmit={handleSubmit} className="mb-8">
+        <form onSubmit={handleSubmit} className="mb-12">
           <div className="relative max-w-2xl mx-auto">
             <Textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Describe the AI agent you want to build..."
-              className="min-h-[120px] bg-slate-800/50 border-slate-700 text-white placeholder:text-slate-500 resize-none pr-12 text-sm"
+              className="min-h-[140px] bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 resize-none pr-16 text-base font-light focus:border-gray-300 focus:ring-1 focus:ring-gray-300"
             />
             <Button
               type="submit"
               size="sm"
               disabled={!input.trim()}
-              className="absolute bottom-3 right-3 bg-blue-600 hover:bg-blue-700 text-white"
+              className="absolute bottom-4 right-4 bg-gray-900 hover:bg-gray-800 text-white rounded-lg h-10 w-10 p-0"
             >
               <Send className="w-4 h-4" />
             </Button>
@@ -93,7 +93,7 @@ export function LandingPage({ onSubmit }: LandingPageProps) {
               <button
                 key={prompt.id}
                 onClick={() => handlePromptClick(prompt)}
-                className="group px-4 py-2 bg-slate-800/30 hover:bg-slate-800/50 border border-slate-700/50 hover:border-slate-600 rounded-full text-sm text-slate-300 hover:text-white transition-all duration-200 animate-slide-in whitespace-nowrap"
+                className="group px-6 py-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 rounded-full text-sm text-gray-700 hover:text-gray-900 transition-all duration-200 animate-slide-in whitespace-nowrap font-light"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {prompt.title}

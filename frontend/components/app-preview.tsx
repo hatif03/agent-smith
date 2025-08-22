@@ -55,12 +55,12 @@ export function AppPreview({ isVisible }: AppPreviewProps) {
 
   if (!isVisible) {
     return (
-      <div className="h-full bg-slate-900 flex items-center justify-center">
-        <div className="text-center text-slate-500">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-slate-800 flex items-center justify-center">
-            <Bot className="w-8 h-8" />
+      <div className="h-full bg-white flex items-center justify-center">
+        <div className="text-center text-gray-400">
+          <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gray-50 flex items-center justify-center">
+            <Bot className="w-10 h-10" />
           </div>
-          <p className="text-sm">Your AI agent will appear here</p>
+          <p className="text-base font-light">Your AI agent will appear here</p>
         </div>
       </div>
     )
@@ -68,19 +68,19 @@ export function AppPreview({ isVisible }: AppPreviewProps) {
 
   if (appState.isBuilding) {
     return (
-      <div className="h-full bg-slate-900 flex items-center justify-center p-8">
+      <div className="h-full bg-white flex items-center justify-center p-8">
         <div className="w-full max-w-md text-center">
-          <div className="mb-8">
-            <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center animate-pulse-slow">
-              <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+          <div className="mb-12">
+            <div className="w-24 h-24 mx-auto mb-6 rounded-3xl bg-gray-900 flex items-center justify-center">
+              <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Building your AI agent...</h3>
-            <p className="text-sm text-slate-400">Training the model and setting up capabilities</p>
+            <h3 className="text-xl font-medium text-gray-900 mb-3">Building your AI agent...</h3>
+            <p className="text-base text-gray-600 font-light">Training the model and setting up capabilities</p>
           </div>
 
-          <div className="space-y-3">
-            <Progress value={appState.progress} className="h-2" />
-            <p className="text-xs text-slate-500">{appState.progress}% complete</p>
+          <div className="space-y-4">
+            <Progress value={appState.progress} className="h-2 bg-gray-100" />
+            <p className="text-sm text-gray-500 font-light">{appState.progress}% complete</p>
           </div>
         </div>
       </div>
@@ -88,28 +88,28 @@ export function AppPreview({ isVisible }: AppPreviewProps) {
   }
 
   return (
-    <div className="h-full bg-slate-900 flex flex-col">
+    <div className="h-full bg-white flex flex-col">
       {/* Header with Tabs */}
-      <div className="p-4 border-b border-slate-800 flex items-center justify-between flex-shrink-0">
-        <div className="flex items-center gap-4">
-          <h3 className="text-sm font-medium text-white">AI Agent Preview</h3>
-          <div className="flex bg-slate-800 rounded-lg p-1">
+      <div className="p-6 border-b border-gray-100 flex items-center justify-between flex-shrink-0">
+        <div className="flex items-center gap-6">
+          <h3 className="text-base font-medium text-gray-900">AI Agent Preview</h3>
+          <div className="flex bg-gray-50 rounded-xl p-1">
             <button
               onClick={() => setActiveTab("chat")}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
-                activeTab === "chat" ? "bg-blue-600 text-white" : "text-slate-400 hover:text-white"
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                activeTab === "chat" ? "bg-white text-gray-900 shadow-sm border border-gray-200" : "text-gray-600 hover:text-gray-900"
               }`}
             >
-              <MessageSquare className="w-3 h-3 mr-1.5 inline" />
+              <MessageSquare className="w-4 h-4 mr-2 inline" />
               Chat
             </button>
             <button
               onClick={() => setActiveTab("config")}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
-                activeTab === "config" ? "bg-blue-600 text-white" : "text-slate-400 hover:text-white"
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                activeTab === "config" ? "bg-white text-gray-900 shadow-sm border border-gray-200" : "text-gray-600 hover:text-gray-900"
               }`}
             >
-              <Settings className="w-3 h-3 mr-1.5 inline" />
+              <Settings className="w-4 h-4 mr-2 inline" />
               Config
             </button>
           </div>
@@ -117,23 +117,23 @@ export function AppPreview({ isVisible }: AppPreviewProps) {
 
         {/* Download and GitHub buttons - moved to right corner */}
         {appState.isComplete && (
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <Button
               size="sm"
               variant="outline"
               onClick={handleDownloadCode}
               disabled={downloading}
-              className="bg-slate-800/50 border-slate-600 text-slate-200 hover:bg-slate-700 hover:border-slate-500 hover:text-white transition-all duration-200 text-xs px-3 py-1.5 h-8 font-medium"
+              className="bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 transition-all duration-200 text-sm px-4 py-2 h-10 font-medium rounded-xl"
             >
-              <Download className="w-3.5 h-3.5 mr-1.5" />
+              <Download className="w-4 h-4 mr-2" />
               {downloading ? "Generating..." : "Download Agent Code"}
             </Button>
             <Button
               size="sm"
               variant="outline"
-              className="bg-slate-800/50 border-slate-600 text-slate-200 hover:bg-slate-700 hover:border-slate-500 hover:text-white transition-all duration-200 text-xs px-3 py-1.5 h-8 font-medium"
+              className="bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 transition-all duration-200 text-sm px-4 py-2 h-10 font-medium rounded-xl"
             >
-              <Github className="w-3.5 h-3.5 mr-1.5" />
+              <Github className="w-4 h-4 mr-2" />
               GitHub
             </Button>
           </div>

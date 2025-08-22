@@ -22,7 +22,7 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
       StarterKit.configure({
         codeBlock: {
           HTMLAttributes: {
-            class: "bg-slate-900 text-green-400 p-4 rounded-md font-mono text-sm",
+            class: "bg-gray-100 text-gray-700 p-4 rounded-xl font-mono text-sm border border-gray-200",
           },
         },
       }),
@@ -33,7 +33,7 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
     },
     editorProps: {
       attributes: {
-        class: `prose prose-sm max-w-none focus:outline-none p-3 text-slate-700 ${
+        class: `prose prose-sm max-w-none focus:outline-none p-4 text-gray-700 ${
           isFullscreen ? "min-h-[calc(100vh-200px)]" : "min-h-[120px]"
         }`,
       },
@@ -42,8 +42,8 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
 
   if (!editor) {
     return (
-      <div className={`border border-slate-200 rounded-md ${className}`}>
-        <div className="p-3 min-h-[120px] text-slate-500 text-sm">Loading editor...</div>
+      <div className={`border border-gray-200 rounded-xl ${className}`}>
+        <div className="p-4 min-h-[120px] text-gray-500 text-sm font-light">Loading editor...</div>
       </div>
     )
   }
@@ -53,13 +53,13 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
   }
 
   const ToolbarContent = () => (
-    <div className="border-b border-slate-200 p-2 flex items-center justify-between">
-      <div className="flex items-center gap-1">
+    <div className="border-b border-gray-100 p-4 flex items-center justify-between">
+      <div className="flex items-center gap-2">
         <Button
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`h-8 px-2 ${editor.isActive("bold") ? "bg-slate-200" : ""}`}
+          className={`h-8 px-3 rounded-lg ${editor.isActive("bold") ? "bg-gray-100" : ""}`}
         >
           <Bold className="w-4 h-4" />
         </Button>
@@ -67,7 +67,7 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`h-8 px-2 ${editor.isActive("italic") ? "bg-slate-200" : ""}`}
+          className={`h-8 px-3 rounded-lg ${editor.isActive("italic") ? "bg-gray-100" : ""}`}
         >
           <Italic className="w-4 h-4" />
         </Button>
@@ -75,16 +75,16 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleCode().run()}
-          className={`h-8 px-2 ${editor.isActive("code") ? "bg-slate-200" : ""}`}
+          className={`h-8 px-3 rounded-lg ${editor.isActive("code") ? "bg-gray-100" : ""}`}
         >
           <Code className="w-4 h-4" />
         </Button>
-        <div className="w-px h-6 bg-slate-200 mx-1" />
+        <div className="w-px h-6 bg-gray-200 mx-2" />
         <Button
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={`h-8 px-2 ${editor.isActive("bulletList") ? "bg-slate-200" : ""}`}
+          className={`h-8 px-3 rounded-lg ${editor.isActive("bulletList") ? "bg-gray-100" : ""}`}
         >
           <List className="w-4 h-4" />
         </Button>
@@ -92,7 +92,7 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className={`h-8 px-2 ${editor.isActive("orderedList") ? "bg-slate-200" : ""}`}
+          className={`h-8 px-3 rounded-lg ${editor.isActive("orderedList") ? "bg-gray-100" : ""}`}
         >
           <ListOrdered className="w-4 h-4" />
         </Button>
@@ -100,15 +100,14 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
-          className={`h-8 px-2 ${editor.isActive("blockquote") ? "bg-slate-200" : ""}`}
+          className={`h-8 px-3 rounded-lg ${editor.isActive("blockquote") ? "bg-gray-100" : ""}`}
         >
           <Quote className="w-4 h-4" />
         </Button>
-        <div className="w-px h-6 bg-slate-200 mx-1" />
-        <Button variant="ghost" size="sm" onClick={toggleFullscreen} className="h-8 px-2">
-          {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-        </Button>
       </div>
+      <Button variant="ghost" size="sm" onClick={toggleFullscreen} className="h-8 px-3 rounded-lg">
+        {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+      </Button>
     </div>
   )
 
@@ -116,14 +115,14 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
     return (
       <div className="fixed inset-0 z-50 bg-white flex flex-col">
         {/* Fullscreen Header */}
-        <div className="border-b border-slate-200 p-4 flex items-center justify-between bg-slate-50">
+        <div className="border-b border-gray-100 p-6 flex items-center justify-between bg-gray-50">
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">
+            <h2 className="text-xl font-medium text-gray-900">
               {label ? `Editing: ${label}` : "Full Screen Editor"}
             </h2>
-            <p className="text-sm text-slate-600">Press Escape or click minimize to exit fullscreen</p>
+            <p className="text-sm text-gray-600 font-light">Press Escape or click minimize to exit fullscreen</p>
           </div>
-          <Button variant="ghost" size="sm" onClick={toggleFullscreen} className="h-8 px-2">
+          <Button variant="ghost" size="sm" onClick={toggleFullscreen} className="h-10 px-3 rounded-xl">
             <X className="w-4 h-4" />
           </Button>
         </div>
@@ -137,9 +136,9 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
         </div>
 
         {/* Fullscreen Footer */}
-        <div className="border-t border-slate-200 p-4 bg-slate-50">
-          <div className="flex justify-end gap-2">
-            <Button variant="outline" onClick={toggleFullscreen}>
+        <div className="border-t border-gray-100 p-6 bg-gray-50">
+          <div className="flex justify-end gap-3">
+            <Button variant="outline" onClick={toggleFullscreen} className="border-gray-200 text-gray-700 hover:bg-gray-50 rounded-xl">
               Done Editing
             </Button>
           </div>
@@ -149,7 +148,7 @@ export function TipTapEditor({ content, onChange, placeholder, className, label 
   }
 
   return (
-    <div className={`border border-slate-200 rounded-md ${className}`}>
+    <div className={`border border-gray-200 rounded-xl ${className}`}>
       <ToolbarContent />
       <EditorContent editor={editor} className="min-h-[120px]" />
     </div>

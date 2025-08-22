@@ -39,16 +39,16 @@ const AgentNode = ({ data, selected }: { data: any; selected: boolean }) => {
 
   return (
     <div
-      className={`px-4 py-3 shadow-lg rounded-lg bg-white border-2 transition-all ${
-        selected ? "border-blue-500 shadow-blue-200" : "border-slate-200 hover:border-slate-300"
+      className={`px-4 py-3 shadow-sm rounded-2xl bg-white border-2 transition-all ${
+        selected ? "border-gray-900 shadow-md" : "border-gray-200 hover:border-gray-300"
       }`}
     >
       <Handle type="target" position={Position.Top} className="w-3 h-3" />
-      <div className="flex items-center gap-2">
-        <div className="text-blue-600">{getAgentIcon(data.agentType)}</div>
+      <div className="flex items-center gap-3">
+        <div className="text-gray-900">{getAgentIcon(data.agentType)}</div>
         <div>
-          <div className="font-medium text-sm text-slate-900">{data.label}</div>
-          <div className="text-xs text-slate-500 max-w-32 truncate">{data.description}</div>
+          <div className="font-medium text-sm text-gray-900">{data.label}</div>
+          <div className="text-xs text-gray-500 max-w-32 truncate font-light">{data.description}</div>
         </div>
       </div>
       <Handle type="source" position={Position.Bottom} className="w-3 h-3" />
@@ -59,16 +59,16 @@ const AgentNode = ({ data, selected }: { data: any; selected: boolean }) => {
 const ToolNode = ({ data, selected }: { data: any; selected: boolean }) => {
   return (
     <div
-      className={`px-3 py-2 shadow-lg rounded-lg bg-green-50 border-2 transition-all ${
-        selected ? "border-green-500 shadow-green-200" : "border-green-200 hover:border-green-300"
+      className={`px-3 py-2 shadow-sm rounded-2xl bg-gray-50 border-2 transition-all ${
+        selected ? "border-gray-900 shadow-md" : "border-gray-200 hover:border-gray-300"
       }`}
     >
       <Handle type="target" position={Position.Top} className="w-3 h-3" />
       <div className="flex items-center gap-2">
-        <Wrench className="w-3 h-3 text-green-600" />
+        <Wrench className="w-3 h-3 text-gray-700" />
         <div>
-          <div className="font-medium text-xs text-slate-900">{data.label}</div>
-          <div className="text-xs text-slate-500 max-w-24 truncate">{data.description}</div>
+          <div className="font-medium text-xs text-gray-900">{data.label}</div>
+          <div className="text-xs text-gray-500 max-w-24 truncate font-light">{data.description}</div>
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@ export function AgentGraph({ config, onNodeClick }: AgentGraphProps) {
           description: agent.description,
           agentType: agent.type,
         },
-        className: isMainAgent ? "ring-2 ring-blue-400" : "",
+        className: isMainAgent ? "ring-2 ring-gray-900" : "",
       })
     })
 
@@ -140,8 +140,8 @@ export function AgentGraph({ config, onNodeClick }: AgentGraphProps) {
           target: `agent-${subAgentName}`,
           type: "smoothstep",
           label: "sub-agent",
-          labelStyle: { fontSize: 10, fill: "#64748b" },
-          style: { stroke: "#3b82f6", strokeWidth: 2 },
+          labelStyle: { fontSize: 10, fill: "#6b7280" },
+          style: { stroke: "#374151", strokeWidth: 2 },
         })
       })
 
@@ -153,8 +153,8 @@ export function AgentGraph({ config, onNodeClick }: AgentGraphProps) {
           target: `tool-${toolName}`,
           type: "smoothstep",
           label: "uses",
-          labelStyle: { fontSize: 10, fill: "#059669" },
-          style: { stroke: "#10b981", strokeWidth: 1, strokeDasharray: "5,5" },
+          labelStyle: { fontSize: 10, fill: "#6b7280" },
+          style: { stroke: "#9ca3af", strokeWidth: 1, strokeDasharray: "5,5" },
         })
       })
     })
@@ -185,14 +185,14 @@ export function AgentGraph({ config, onNodeClick }: AgentGraphProps) {
         onNodeClick={onNodeClickHandler}
         nodeTypes={nodeTypes}
         fitView
-        className="bg-slate-50"
+        className="bg-gray-50"
       >
-        <Controls className="bg-white border border-slate-200 rounded-lg" />
+        <Controls className="bg-white border border-gray-200 rounded-xl" />
         <MiniMap
-          className="bg-white border border-slate-200 rounded-lg"
-          nodeColor={(node) => (node.type === "agent" ? "#3b82f6" : "#10b981")}
+          className="bg-white border border-gray-200 rounded-xl"
+          nodeColor={(node) => (node.type === "agent" ? "#374151" : "#6b7280")}
         />
-        <Background color="#e2e8f0" gap={20} />
+        <Background color="#f3f4f6" gap={20} />
       </ReactFlow>
     </div>
   )
