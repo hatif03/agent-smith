@@ -6,9 +6,9 @@ import { useState, useRef, useEffect } from "react"
 import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { Send, Bot, CheckCircle, Clock, Settings } from "lucide-react"
-import type { Message } from "../types"
-import { simulateAIResponse } from "../lib/mock-api"
-import { generateUniqueId } from "../lib/utils"
+import type { Message } from "@/types"
+import { simulateAIResponse } from "@/lib/mock-api"
+import { generateUniqueId } from "@/lib/utils"
 
 interface ChatInterfaceProps {
   initialMessage: string
