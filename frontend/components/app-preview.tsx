@@ -8,8 +8,10 @@ import { simulateAgentBuilding } from "../lib/mock-api"
 import { AgentChat } from "./agent-chat"
 import { AgentConfig } from "./agent-config"
 import { Button } from "./ui/button"
-import { codeGenerator } from "../lib/code-generator"
-import { fetchAgentConfig } from "../lib/agent-api"
+// import { codeGenerator } from "../lib/code-generator"
+// import { fetchAgentConfig } from "../lib/agent-api"
+import { fetchAgentConfig } from "@/lib/agent-api"
+import { codeGenerator } from "@/lib/code-generator"
 
 interface AppPreviewProps {
   isVisible: boolean

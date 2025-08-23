@@ -7,7 +7,8 @@ import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { Badge } from "./ui/badge"
 import { Send, Bot } from "lucide-react"
-import { mockPrompts } from "../lib/mock-api"
+// import { mockPrompts } from "../lib/mock-api"
+import { mockPrompts } from "@/lib/mock-api"
 import type { PromptSuggestion } from "../types"
 
 interface LandingPageProps {

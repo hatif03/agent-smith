@@ -7,8 +7,10 @@ import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { Send, Bot } from "lucide-react"
 import type { Message } from "../types"
-import { simulateAgentResponse } from "../lib/mock-api"
-import { generateUniqueId } from "../lib/utils"
+// import { simulateAgentResponse } from "../lib/mock-api"
+// import { generateUniqueId } from "../lib/utils"
+import { simulateAgentResponse } from "@/lib/mock-api"
+import { generateUniqueId } from "@/lib/utils"
 
 export function AgentChat() {
   const [messages, setMessages] = useState<Message[]>([
