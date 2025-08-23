@@ -7,8 +7,39 @@ import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { Badge } from "./ui/badge"
 import { Send, Bot } from "lucide-react"
-// import { mockPrompts } from "../lib/mock-api"
-import { mockPrompts } from "@/lib/mock-api"
+// Mock data copied from lib files
+const mockPrompts = [
+  {
+    id: "customer-support",
+    title: "Customer Support Agent",
+    description: "An AI agent that can handle customer inquiries, troubleshoot issues, and provide helpful solutions"
+  },
+  {
+    id: "data-analyst",
+    title: "Data Analysis Agent",
+    description: "An intelligent agent that can analyze data, create reports, and provide insights from complex datasets"
+  },
+  {
+    id: "code-assistant",
+    title: "Code Generation Agent",
+    description: "An AI developer that can write, review, and debug code in multiple programming languages"
+  },
+  {
+    id: "content-writer",
+    title: "Content Creation Agent",
+    description: "A creative writer that can generate articles, marketing copy, and engaging content"
+  },
+  {
+    id: "research-assistant",
+    title: "Research Assistant",
+    description: "An agent that can gather information, summarize research, and answer complex questions"
+  },
+  {
+    id: "project-manager",
+    title: "Project Management Agent",
+    description: "An organized agent that can plan projects, track progress, and manage team workflows"
+  }
+]
 import type { PromptSuggestion } from "../types"
 
 interface LandingPageProps {

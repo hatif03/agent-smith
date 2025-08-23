@@ -16,8 +16,8 @@ import ReactFlow, {
   Position,
 } from "reactflow"
 import "reactflow/dist/style.css"
-import type { AgentProjectConfig } from "@/types/agent-config"
-import { AgentType } from "@/types/agent-config"
+import type { AgentProjectConfig } from "../types/agent-config"
+import { AgentType } from "../types/agent-config"
 import { Bot, Wrench, Zap, GitBranch } from "lucide-react"
 
 // Custom node components

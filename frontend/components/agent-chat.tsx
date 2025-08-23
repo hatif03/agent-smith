@@ -7,10 +7,67 @@ import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { Send, Bot } from "lucide-react"
 import type { Message } from "../types"
-// import { simulateAgentResponse } from "../lib/mock-api"
-// import { generateUniqueId } from "../lib/utils"
-import { simulateAgentResponse } from "@/lib/mock-api"
-import { generateUniqueId } from "@/lib/utils"
+// Utility functions copied from lib files
+// Simulate API delay for realistic feel
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
+// Generate unique IDs to prevent React key duplication
+let idCounter = 0
+function generateUniqueId(): string {
+  idCounter += 1
+  return `${Date.now()}-${idCounter}-${Math.random().toString(36).substr(2, 9)}`
+}
+
+// Mock agent responses for the chat interface
+const simulateAgentResponse = async (userInput: string): Promise<string> => {
+  await delay(1000 + Math.random() * 2000) // Simulate thinking time (1-3 seconds)
+  
+  const input = userInput.toLowerCase()
+  
+  // Generate contextual responses based on user input
+  if (input.includes("hello") || input.includes("hi") || input.includes("hey")) {
+    return "Hello! I'm your AI agent. How can I help you today? I'm here to assist with any questions or tasks you might have."
+  }
+  
+  if (input.includes("help") || input.includes("support")) {
+    return "I'm here to help! I can assist with various tasks including data analysis, code generation, content creation, and more. What specific area do you need help with?"
+  }
+  
+  if (input.includes("data") || input.includes("analysis") || input.includes("report")) {
+    return "I can help you with data analysis! I can process datasets, create visualizations, generate reports, and provide insights. What kind of data are you working with?"
+  }
+  
+  if (input.includes("code") || input.includes("programming") || input.includes("develop")) {
+    return "I'm great with code! I can help you write, debug, and optimize code in Python, JavaScript, TypeScript, and other languages. What are you trying to build?"
+  }
+  
+  if (input.includes("write") || input.includes("content") || input.includes("article")) {
+    return "I can help you create content! Whether it's articles, marketing copy, technical documentation, or creative writing, I'm here to assist. What type of content do you need?"
+  }
+  
+  if (input.includes("research") || input.includes("information") || input.includes("find")) {
+    return "I can help you research topics, gather information, and provide comprehensive answers to your questions. What would you like to learn more about?"
+  }
+  
+  if (input.includes("project") || input.includes("plan") || input.includes("organize")) {
+    return "I can help you plan and organize projects! I can create timelines, break down tasks, and help you stay on track. What kind of project are you working on?"
+  }
+  
+  if (input.includes("thank")) {
+    return "You're welcome! I'm happy to help. Is there anything else you'd like assistance with?"
+  }
+  
+  // Default response for other inputs
+  const responses = [
+    "That's an interesting question! Let me think about how I can best help you with that.",
+    "I understand what you're asking. Let me provide you with some helpful information.",
+    "Great question! I can definitely assist you with that. Let me break it down for you.",
+    "I'm here to help with exactly that kind of request. Let me give you a comprehensive answer.",
+    "That's a good point! I can provide you with some insights and solutions for that."
+  ]
+  
+  return responses[Math.floor(Math.random() * responses.length)]
+}
 
 export function AgentChat() {
   const [messages, setMessages] = useState<Message[]>([

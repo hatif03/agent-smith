@@ -7,10 +7,59 @@ import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { Send, Bot, CheckCircle, Clock, Settings } from "lucide-react"
 import type { Message } from "../types"
-// import { simulateAIResponse } from "../lib/mock-api"
-// import { generateUniqueId } from "../lib/utils"
-import { simulateAIResponse } from "@/lib/mock-api"
-import { generateUniqueId } from "@/lib/utils"
+// Utility functions copied from lib files
+// Simulate API delay for realistic feel
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
+// Generate unique IDs to prevent React key duplication
+let idCounter = 0
+function generateUniqueId(): string {
+  idCounter += 1
+  return `${Date.now()}-${idCounter}-${Math.random().toString(36).substr(2, 9)}`
+}
+
+// Mock AI responses for the chat interface
+const simulateAIResponse = async (userInput: string): Promise<string> => {
+  await delay(800 + Math.random() * 1500) // Simulate thinking time (0.8-2.3 seconds)
+  
+  const input = userInput.toLowerCase()
+  
+  // Generate contextual responses based on user input for agent building
+  if (input.includes("customer support") || input.includes("support agent")) {
+    return "I'll help you create a customer support agent! This agent will be able to handle inquiries, troubleshoot issues, and provide helpful solutions. Let me set up the basic framework with tools for knowledge base access, ticket management, and customer database integration."
+  }
+  
+  if (input.includes("data analysis") || input.includes("data analyst")) {
+    return "Perfect! I'm creating a data analysis agent for you. This agent will be equipped with tools for data processing, statistical analysis, visualization generation, and report creation. It will be able to work with various data formats and provide insights."
+  }
+  
+  if (input.includes("code") || input.includes("programming") || input.includes("developer")) {
+    return "Excellent choice! I'm building a code generation and review agent. This agent will have capabilities for writing code in multiple languages, debugging, code review, and documentation generation. It will be your AI programming partner."
+  }
+  
+  if (input.includes("content") || input.includes("writing") || input.includes("creative")) {
+    return "Great idea! I'm creating a content creation agent for you. This agent will specialize in writing articles, marketing copy, technical documentation, and creative content. It will understand tone, style, and audience targeting."
+  }
+  
+  if (input.includes("research") || input.includes("information") || input.includes("assistant")) {
+    return "I'll build you a research assistant agent! This agent will be able to gather information from multiple sources, summarize research findings, answer complex questions, and provide comprehensive analysis on various topics."
+  }
+  
+  if (input.includes("project") || input.includes("management") || input.includes("organize")) {
+    return "Smart choice! I'm creating a project management agent for you. This agent will help with planning, task organization, timeline management, progress tracking, and team coordination. It will be your AI project coordinator."
+  }
+  
+  // Default response for other inputs
+  const responses = [
+    "I understand what you're looking for! Let me create an AI agent that can help you with that. I'll configure it with the right tools and capabilities to meet your needs.",
+    "That's a great use case for an AI agent! I'm setting up the framework with specialized tools and training it to handle your specific requirements.",
+    "Perfect! I'll build an AI agent tailored to your needs. Let me configure the right combination of tools and capabilities to make it effective.",
+    "Excellent idea! I'm creating an AI agent that will be perfect for your use case. I'll equip it with the necessary tools and train it on relevant knowledge.",
+    "I love that concept! Let me build you an AI agent that can handle this task efficiently. I'll set it up with the right tools and training."
+  ]
+  
+  return responses[Math.floor(Math.random() * responses.length)]
+}
 
 interface ChatInterfaceProps {
   initialMessage: string
