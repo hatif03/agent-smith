@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react"
 import { Progress } from "./ui/progress"
 import { MessageSquare, Settings, Bot, Download, Github } from "lucide-react"
-import type { AppState } from "@/types"
-import { simulateAgentBuilding } from "@/lib/mock-api"
+import type { AppState } from "../types"
+import { simulateAgentBuilding } from "../lib/mock-api"
 import { AgentChat } from "./agent-chat"
 import { AgentConfig } from "./agent-config"
 import { Button } from "./ui/button"
-import { codeGenerator } from "@/lib/code-generator"
-import { fetchAgentConfig } from "@/lib/agent-api"
+import { codeGenerator } from "../lib/code-generator"
+import { fetchAgentConfig } from "../lib/agent-api"
 
 interface AppPreviewProps {
   isVisible: boolean

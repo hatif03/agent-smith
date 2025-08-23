@@ -12,6 +12,13 @@ const nextConfig = {
   experimental: {
     esmExternals: true,
   },
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': require('path').resolve(__dirname),
+    }
+    return config
+  },
 }
 
 export default nextConfig

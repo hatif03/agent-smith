@@ -11,9 +11,9 @@ import { Download, Settings, Network, Save, X, Key, Info } from "lucide-react"
 import { AgentGraph } from "./agent-graph"
 import { CodeEditor } from "./code-editor"
 import { TipTapEditor } from "./tiptap-editor"
-import type { AgentProjectConfig, AgentConfig, ToolConfig } from "@/types/agent-config"
-import { fetchAgentConfig, updateAgent, updateTool } from "@/lib/agent-api"
-import { codeGenerator } from "@/lib/code-generator"
+import type { AgentProjectConfig, AgentConfig, ToolConfig } from "../types/agent-config"
+import { fetchAgentConfig, updateAgent, updateTool } from "../lib/agent-api"
+import { codeGenerator } from "../lib/code-generator"
 
 interface EditingState {
   type: "agent" | "tool" | null
