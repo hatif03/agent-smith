@@ -68,3 +68,9 @@ export interface GraphEdge {
   type: "sub_agent" | "tool_usage"
   label?: string
 }
+
+export interface PromptSuggestion {
+  id: string
+  title: string
+  description: string
+}

@@ -114,10 +114,18 @@ export function AgentConfig() {
   const updateEditingData = (updates: Partial<AgentConfig | ToolConfig>) => {
     if (!editingState.data) return
 
-    setEditingState({
-      ...editingState,
-      data: { ...editingState.data, ...updates },
-    })
+    // Type-safe update based on the current editing type
+    if (editingState.type === "agent" && editingState.data) {
+      setEditingState({
+        ...editingState,
+        data: { ...editingState.data as AgentConfig, ...updates as Partial<AgentConfig> },
+      })
+    } else if (editingState.type === "tool" && editingState.data) {
+      setEditingState({
+        ...editingState,
+        data: { ...editingState.data as ToolConfig, ...updates as Partial<ToolConfig> },
+      })
+    }
   }
 
   const handleDownloadCode = async () => {
