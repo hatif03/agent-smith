@@ -1,7 +1,14 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
-import { cn } from "@/lib/utils"
+// import { cn } from "@/lib/utils"
+
+// Utility function to merge class names
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 const alertVariants = cva(
   "relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground",

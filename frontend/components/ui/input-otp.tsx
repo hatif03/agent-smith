@@ -1,10 +1,17 @@
 "use client"
 
 import * as React from "react"
-import { OTPInput, OTPInputContext } from "input-otp"
 import { Dot } from "lucide-react"
+import { OTPInput, SlotProps } from "input-otp"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
-import { cn } from "@/lib/utils"
+// import { cn } from "@/lib/utils"
+
+// Utility function to merge class names
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 const InputOTP = React.forwardRef<
   React.ElementRef<typeof OTPInput>,

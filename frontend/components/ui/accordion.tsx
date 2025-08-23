@@ -3,8 +3,16 @@
 import * as React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
 import { ChevronDown } from "lucide-react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
-import { cn } from "@/lib/utils"
+// import { cn } from "@/lib/utils"
+
+// Utility function to merge class names
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 const Accordion = AccordionPrimitive.Root
 

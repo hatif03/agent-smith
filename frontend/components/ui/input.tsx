@@ -1,5 +1,13 @@
 import * as React from "react"
-import { cn } from "@/lib/utils"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+// import { cn } from "@/lib/utils"
+
+// Utility function to merge class names
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 

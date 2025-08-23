@@ -11,8 +11,16 @@ import {
   FormProvider,
   useFormContext,
 } from "react-hook-form"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
-import { cn } from "@/lib/utils"
+// import { cn } from "@/lib/utils"
+
+// Utility function to merge class names
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
 import { Label } from "@/components/ui/label"
 
 const Form = FormProvider

@@ -3,7 +3,8 @@
 import * as React from "react"
 import * as RechartsPrimitive from "recharts"
 
-import { cn } from "@/lib/utils"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
@@ -353,6 +354,11 @@ function getPayloadConfigFromPayload(
   return configLabelKey in config
     ? config[configLabelKey]
     : config[key as keyof typeof config]
+}
+
+// Utility function to merge class names
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }
 
 export {

@@ -6,8 +6,15 @@ import useEmblaCarousel, {
 } from "embla-carousel-react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+// import { cn } from "@/lib/utils"
+
+// Utility function to merge class names
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
