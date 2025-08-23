@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { LandingPage } from "@/components/landing-page"
-import { ChatInterface } from "@/components/chat-interface"
-import { AppPreview } from "@/components/app-preview"
+import { LandingPage } from "../components/landing-page"
+import { ChatInterface } from "../components/chat-interface"
+import { AppPreview } from "../components/app-preview"
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<"landing" | "chat">("landing")

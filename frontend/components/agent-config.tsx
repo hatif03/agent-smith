@@ -1,19 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Badge } from "./ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { Button } from "./ui/button"
+import { Input } from "./ui/input"
+import { Textarea } from "./ui/textarea"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
 import { Download, Settings, Network, Save, X, Key, Info } from "lucide-react"
 import { AgentGraph } from "./agent-graph"
 import { CodeEditor } from "./code-editor"
 import { TipTapEditor } from "./tiptap-editor"
-import type { AgentProjectConfig, AgentConfig, ToolConfig } from "@/types/agent-config"
-import { fetchAgentConfig, updateAgent, updateTool } from "@/lib/agent-api"
-import { codeGenerator } from "@/lib/code-generator"
+import type { AgentProjectConfig, AgentConfig, ToolConfig } from "../types/agent-config"
+import { fetchAgentConfig, updateAgent, updateTool } from "../lib/agent-api"
+import { codeGenerator } from "../lib/code-generator"
 
 interface EditingState {
   type: "agent" | "tool" | null

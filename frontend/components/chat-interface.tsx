@@ -3,11 +3,12 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "./ui/button"
+import { Textarea } from "./ui/textarea"
 import { Send, Bot, CheckCircle, Clock, Settings } from "lucide-react"
-import type { Message } from "@/types"
-import { simulateAIResponse } from "@/lib/mock-api"
+import type { Message } from "../types"
+import { simulateAIResponse } from "../lib/mock-api"
+import { generateUniqueId } from "../lib/utils"
 
 interface ChatInterfaceProps {
   initialMessage: string
@@ -156,7 +157,7 @@ export function ChatInterface({ initialMessage, onFirstResponse }: ChatInterface
       setMessages((prev) => [
         ...prev,
         {
-          id: Date.now().toString(),
+          id: generateUniqueId(),
           role: "assistant",
           content: response,
           timestamp: new Date(),
@@ -174,7 +175,7 @@ export function ChatInterface({ initialMessage, onFirstResponse }: ChatInterface
     if (!input.trim() || isLoading) return
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: generateUniqueId(),
       role: "user",
       content: input.trim(),
       timestamp: new Date(),
@@ -189,7 +190,7 @@ export function ChatInterface({ initialMessage, onFirstResponse }: ChatInterface
       setMessages((prev) => [
         ...prev,
         {
-          id: (Date.now() + 1).toString(),
+          id: generateUniqueId(),
           role: "assistant",
           content: response,
           timestamp: new Date(),

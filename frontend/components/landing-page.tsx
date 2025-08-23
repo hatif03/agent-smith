@@ -3,12 +3,12 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "./ui/button"
+import { Textarea } from "./ui/textarea"
+import { Badge } from "./ui/badge"
 import { Send, Bot } from "lucide-react"
-import { mockPrompts } from "@/lib/mock-api"
-import type { PromptSuggestion } from "@/types"
+import { mockPrompts } from "../lib/mock-api"
+import type { PromptSuggestion } from "../types"
 
 interface LandingPageProps {
   onSubmit: (message: string) => void

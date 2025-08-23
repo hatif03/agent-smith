@@ -3,11 +3,12 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "./ui/button"
+import { Textarea } from "./ui/textarea"
 import { Send, Bot } from "lucide-react"
-import type { Message } from "@/types"
-import { simulateAgentResponse } from "@/lib/mock-api"
+import type { Message } from "../types"
+import { simulateAgentResponse } from "../lib/mock-api"
+import { generateUniqueId } from "../lib/utils"
 
 export function AgentChat() {
   const [messages, setMessages] = useState<Message[]>([
@@ -36,7 +37,7 @@ export function AgentChat() {
     if (!input.trim() || isLoading) return
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: generateUniqueId(),
       role: "user",
       content: input.trim(),
       timestamp: new Date(),
@@ -51,7 +52,7 @@ export function AgentChat() {
       setMessages((prev) => [
         ...prev,
         {
-          id: (Date.now() + 1).toString(),
+          id: generateUniqueId(),
           role: "assistant",
           content: response,
           timestamp: new Date(),
