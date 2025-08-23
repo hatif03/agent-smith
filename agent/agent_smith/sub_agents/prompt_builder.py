@@ -7,11 +7,12 @@ import os
 
 prompt_builder = LlmAgent(
     name="prompt_builder",
-    model=LiteLlm(
-        model='openai/gpt-5-2025-08-07',
-        api_key=os.getenv("AIML_API_KEY"),
-        api_base='https://api.aimlapi.com/v1'
-    ),
+    # model=LiteLlm(
+    #     model='openai/gpt-5-2025-08-07',
+    #     api_key=os.getenv("AIML_API_KEY"),
+    #     api_base='https://api.aimlapi.com/v1'
+    # ),
+    model="gemini-2.0-flash",
     description="""
     Prompt Engineering Specialist that creates detailed, effective instructions 
     for AI agents. Focuses on clear role definition, tool usage, response 

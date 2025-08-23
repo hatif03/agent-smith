@@ -14,16 +14,17 @@ from ..prompts import AGENT_BUILDER_PROMPT
 from .prompt_builder import prompt_builder
 from ..tools.config_merger import add_agent_to_config, update_agent_in_config
 
-import litellm
+# import litellm
 
-# Enable the use_litellm_proxy flag
-litellm.use_litellm_proxy = True
+# # Enable the use_litellm_proxy flag
+# litellm.use_litellm_proxy = True
 
 agent_builder = LlmAgent(
     name="agent_builder",
-    model=LiteLlm(
-        model='openai/gpt-5-2025-08-07'
-    ),
+    # model=LiteLlm(
+    #     model='openai/gpt-5-2025-08-07'
+    # ),
+    model="gemini-2.0-flash",
     description="""
     Agent Configuration Specialist that builds detailed configurations for 
     individual agents. Creates basic agent config, calls prompt builder for 

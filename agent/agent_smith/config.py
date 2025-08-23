@@ -13,7 +13,7 @@ class AgentModel(BaseModel):
     """Agent model settings."""
     
     name: str = Field(default="agent_creator_orchestrator")
-    model: str = Field(default="openai/gpt-5-nano-2025-08-07")
+    model: str = Field(default="gemini-2.0-flash")
 
 
 class Config(BaseSettings):

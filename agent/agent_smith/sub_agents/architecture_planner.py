@@ -7,11 +7,12 @@ import os
 
 architecture_planner = LlmAgent(
     name="architecture_planner",
-    model=LiteLlm(
-        model='openai/gpt-5-2025-08-07',
-        api_key=os.getenv("AIML_API_KEY"),
-        api_base='https://api.aimlapi.com/v1'
-    ),
+    # model=LiteLlm(
+    #     model='openai/gpt-5-2025-08-07',
+    #     api_key=os.getenv("AIML_API_KEY"),
+    #     api_base='https://api.aimlapi.com/v1'
+    # ),
+    model="gemini-2.0-flash",
     description="""
     Agent Architecture Specialist that designs the structure of agent systems.
     Creates simple, clear architecture plans defining agents, their roles, 
