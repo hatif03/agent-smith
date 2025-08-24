@@ -157,7 +157,7 @@ sequenceDiagram
     API-->>Frontend: WebSocket update with progress
     Frontend-->>User: Visual graph + code preview
     
-    Note over User,Output: Technologies Used:<br/>Frontend: Next.js, React, Tailwind CSS, ReactFlow<br/>Backend: Google ADK, Python, Pydantic<br/>API: FastAPI/Express, WebSocket<br/>Output: Complete Python ADK Project
+    Note over User,Output: Technologies Used:<br/>Frontend: Next.js, React, Tailwind CSS, ReactFlow<br/>Backend: Google ADK, AIML API, GPT5, Python, Pydantic<br/>API: FastAPI/Express, WebSocket<br/>Output: Complete Python ADK Project
 ```
 
 ## 🚀 Features
