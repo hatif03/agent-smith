@@ -1,6 +1,6 @@
 #  Agent Smith
 
-![Download](images/download.png)
+![Download](images/agentsmith.webp)
 
 A sophisticated AI-powered agent generation platform built on Google's Agent Development Kit (ADK) using GPT5. This project provides both a powerful backend meta-agent system and a modern web interface for creating custom AI agents through natural language descriptions.
 
