@@ -1,0 +1,24 @@
+{
+  "session_id": "session_20240711_102148",
+  "project_name": "banking_agent",
+  "generated_at": "2025-08-24T17:31:28.960698",
+  "output_directory": "D:\\projects\\agent-smith\\agent\\banking_agent",
+  "generated_files": [
+    "agent.py",
+    "__init__.py",
+    "requirements.txt",
+    "README.md"
+  ],
+  "agent_count": 1,
+  "tool_count": 4,
+  "main_agent": "BankingAgent",
+  "agents": [
+    "BankingAgent"
+  ],
+  "tools": [
+    "account_api",
+    "view_transaction_history",
+    "transfer_funds",
+    "customer_support_db"
+  ]
+}
