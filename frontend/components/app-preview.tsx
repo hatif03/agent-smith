@@ -239,10 +239,23 @@ export function AppPreview({ isVisible }: AppPreviewProps) {
   const handleDownloadCode = async () => {
     setDownloading(true)
     try {
-      const config = await fetchAgentConfig()
-      await codeGenerator.generateAndDownload(config)
+      // Download the customer-support-agent.rar file
+      const response = await fetch('/customer-support-agent.rar')
+      const blob = await response.blob()
+      
+      // Create download link
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'customer-support-agent.rar'
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+      
+      console.log('Customer support agent downloaded successfully')
     } catch (error) {
-      console.error("Failed togenerate code:", error)
+      console.error("Failed to download agent:", error)
     } finally {
       setDownloading(false)
     }
@@ -321,11 +334,12 @@ export function AppPreview({ isVisible }: AppPreviewProps) {
               className="bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 transition-all duration-200 text-sm px-4 py-2 h-10 font-medium rounded-xl"
             >
               <Download className="w-4 h-4 mr-2" />
-              {downloading ? "Generating..." : "Download Agent Code"}
+              {downloading ? "Downloading..." : "Download Agent"}
             </Button>
             <Button
               size="sm"
               variant="outline"
+              onClick={() => window.open('https://github.com/hatif03/agent-smith', '_blank')}
               className="bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 transition-all duration-200 text-sm px-4 py-2 h-10 font-medium rounded-xl"
             >
               <Github className="w-4 h-4 mr-2" />

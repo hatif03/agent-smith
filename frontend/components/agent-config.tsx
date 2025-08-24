@@ -373,9 +373,23 @@ export function AgentConfig() {
 
     setDownloading(true)
     try {
-      await codeGenerator.generateAndDownload(config)
+      // Download the customer-support-agent.rar file
+      const response = await fetch('/customer-support-agent.rar')
+      const blob = await response.blob()
+      
+      // Create download link
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'customer-support-agent.rar'
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+      
+      console.log('Customer support agent downloaded successfully')
     } catch (error) {
-      console.error("Failed to generate code:", error)
+      console.error("Failed to download agent:", error)
     } finally {
       setDownloading(false)
     }
@@ -416,7 +430,7 @@ export function AgentConfig() {
               <div className="flex gap-3">
                 <Button size="sm" onClick={handleDownloadCode} disabled={downloading} className="bg-gray-900 hover:bg-gray-800 rounded-xl">
                   <Download className="w-4 h-4 mr-2" />
-                  {downloading ? "Generating..." : "Download Code"}
+                  {downloading ? "Downloading..." : "Download Agent"}
                 </Button>
               </div>
             </div>

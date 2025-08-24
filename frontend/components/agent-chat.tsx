@@ -26,35 +26,39 @@ const simulateAgentResponse = async (userInput: string): Promise<string> => {
   
   // Generate contextual responses based on user input
   if (input.includes("hello") || input.includes("hi") || input.includes("hey")) {
-    return "Hello! I'm your AI agent. How can I help you today? I'm here to assist with any questions or tasks you might have."
+    return "Hello! I'm your customer support agent. How can I assist you today? I'm here to help with any questions about our products, services, or account-related inquiries."
   }
   
   if (input.includes("help") || input.includes("support")) {
-    return "I'm here to help! I can assist with various tasks including data analysis, code generation, content creation, and more. What specific area do you need help with?"
+    return "I'm here to provide excellent customer support! I can help with order inquiries, product information, account issues, returns, and general questions. What can I assist you with today?"
   }
   
-  if (input.includes("data") || input.includes("analysis") || input.includes("report")) {
-    return "I can help you with data analysis! I can process datasets, create visualizations, generate reports, and provide insights. What kind of data are you working with?"
+  if (input.includes("order") || input.includes("purchase") || input.includes("buy")) {
+    return "I can help you with your order! I can check order status, help with purchases, process returns, and answer questions about our products. Do you have an order number or need help finding something specific?"
   }
   
-  if (input.includes("code") || input.includes("programming") || input.includes("develop")) {
-    return "I'm great with code! I can help you write, debug, and optimize code in Python, JavaScript, TypeScript, and other languages. What are you trying to build?"
+  if (input.includes("product") || input.includes("item") || input.includes("catalog")) {
+    return "I'd be happy to help you find the right product! I can provide information about our products, check availability, compare options, and help you make the best choice. What are you looking for?"
   }
   
-  if (input.includes("write") || input.includes("content") || input.includes("article")) {
-    return "I can help you create content! Whether it's articles, marketing copy, technical documentation, or creative writing, I'm here to assist. What type of content do you need?"
+  if (input.includes("return") || input.includes("refund") || input.includes("exchange")) {
+    return "I can help you with returns and exchanges! I can process return requests, explain our return policy, and help you get a refund or exchange. What item would you like to return?"
   }
   
-  if (input.includes("research") || input.includes("information") || input.includes("find")) {
-    return "I can help you research topics, gather information, and provide comprehensive answers to your questions. What would you like to learn more about?"
+  if (input.includes("account") || input.includes("login") || input.includes("password")) {
+    return "I can help you with account-related issues! I can assist with login problems, password resets, account updates, and general account questions. What account issue are you experiencing?"
   }
   
-  if (input.includes("project") || input.includes("plan") || input.includes("organize")) {
-    return "I can help you plan and organize projects! I can create timelines, break down tasks, and help you stay on track. What kind of project are you working on?"
+  if (input.includes("shipping") || input.includes("delivery") || input.includes("track")) {
+    return "I can help you with shipping and delivery! I can track your package, provide shipping estimates, explain delivery options, and help resolve any delivery issues. What shipping information do you need?"
+  }
+  
+  if (input.includes("price") || input.includes("cost") || input.includes("discount")) {
+    return "I can help you with pricing information! I can check current prices, apply available discounts, explain pricing policies, and help you find the best deals. What pricing information do you need?"
   }
   
   if (input.includes("thank")) {
-    return "You're welcome! I'm happy to help. Is there anything else you'd like assistance with?"
+    return "You're very welcome! I'm glad I could help. Is there anything else you need assistance with today?"
   }
   
   // Default response for other inputs

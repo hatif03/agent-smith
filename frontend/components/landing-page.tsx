@@ -119,7 +119,7 @@ export function LandingPage({ onSubmit }: LandingPageProps) {
         </form>
 
         {/* Prompt Suggestions */}
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto mb-8">
           <div className="flex flex-wrap justify-center gap-3">
             {mockPrompts.map((prompt, index) => (
               <button
@@ -132,6 +132,21 @@ export function LandingPage({ onSubmit }: LandingPageProps) {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Credit Section */}
+        <div className="text-center mt-8">
+          <p className="text-gray-600 text-sm">
+            Built with ❤️ by{" "}
+            <a 
+              href="https://github.com/hatif03" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 font-medium underline"
+            >
+              hatif03
+            </a>
+          </p>
         </div>
       </div>
     </div>
