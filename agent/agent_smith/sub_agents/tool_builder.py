@@ -3,25 +3,25 @@
 from google.adk.agents.llm_agent import LlmAgent
 from google.adk.tools.function_tool import FunctionTool
 
-from google.adk.models.lite_llm import LiteLlm
+# from google.adk.models.lite_llm import LiteLlm
 import os 
 
 from ..prompts import TOOL_BUILDER_PROMPT
 from ..tools.config_merger import add_tool_to_config, update_tool_in_config
 
-import litellm
+# import litellm
 
-# Enable the use_litellm_proxy flag
-litellm.use_litellm_proxy = True
+# # Enable the use_litellm_proxy flag
+# litellm.use_litellm_proxy = True
 
 tool_builder = LlmAgent(
     name="tool_builder",
-    model=LiteLlm(
-        model='openai/gpt-5-2025-08-07',
-        api_key=os.getenv("AIML_API_KEY"),
-        api_base='https://api.aimlapi.com/v1'
-    ),
-    # model="gemini-2.0-flash",
+    # model=LiteLlm(
+    #     model='openai/gpt-5-2025-08-07',
+    #     api_key=os.getenv("AIML_API_KEY"),
+    #     api_base='https://api.aimlapi.com/v1'
+    # ),
+    model="gemini-2.5-pro",
     description="""
     Tool Creation Specialist that creates custom tools with Python function code.
     Writes clean, functional Python code with proper error handling and adds 

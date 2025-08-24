@@ -7,7 +7,7 @@ from google.adk.agents.llm_agent import LlmAgent
 from google.adk.tools.agent_tool import AgentTool
 from google.adk.tools.function_tool import FunctionTool
 
-from google.adk.models.lite_llm import LiteLlm
+# from google.adk.models.lite_llm import LiteLlm
 import os 
 
 from .config import Config
@@ -28,22 +28,22 @@ from .tools.config_merger import (
 )
 from .tools.code_generator import generate_agent_code
 
-import litellm
+# import litellm
 
-# Enable the use_litellm_proxy flag
-litellm.use_litellm_proxy = True
+# # Enable the use_litellm_proxy flag
+# litellm.use_litellm_proxy = True
 
 configs = Config()
 
 # Main orchestrator agent
 agent_creator_orchestrator = LlmAgent(
     name="agent_creator_orchestrator",
-    # model=configs.agent_settings.model,
-    model=LiteLlm(
-        model='openai/gpt-5-2025-08-07',
-        api_key=os.getenv("AIML_API_KEY"),
-        api_base='https://api.aimlapi.com/v1'
-    ),
+    model="gemini-2.5-pro",
+    # model=LiteLlm(
+    #     model='openai/gpt-5-2025-08-07',
+    #     api_key=os.getenv("AIML_API_KEY"),
+    #     api_base='https://api.aimlapi.com/v1'
+    # ),
     description="""
     Main orchestrator for creating agent configurations. Manages the workflow:
     analyze requirements → plan architecture → build each agent → build tools → generate code.

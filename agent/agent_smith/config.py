@@ -13,7 +13,7 @@ class AgentModel(BaseModel):
     """Agent model settings."""
     
     name: str = Field(default="agent_creator_orchestrator")
-    model: str = Field(default="gemini-2.0-flash")
+    model: str = Field(default="gemini-2.5-pro")
 
 
 class Config(BaseSettings):
